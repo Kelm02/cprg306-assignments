@@ -6,38 +6,40 @@ export default function NewItem() {
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState("");
     const [category, setCategory] = useState("");
+    const [ItemCreated, setItemCreated] = useState(false);
 
+
+    const handleNameChange = (event) => {
+      setName(event.target.value);  
+    };
+
+    const handleQuantityChange = (event) => {
+      setQuantity(event.target.value);
+    };
+
+    const handleCategoryChange = (event) => {
+      setCategory(event.target.value);
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        const newItem = {
+            'name': name,
+            'quantity': quantity,
+            'category': category,
+          };
+
         setName("");
         setQuantity("");
-        setCategory("produce")
+        setCategory("Produce");
 
-        const newEvent = {
-            name,
-            quantity,
-            category,
-          };
+        setItemCreated(true);
 
+        alert("Name = " + "[" + newItem.name + "]" + " Quantity = " + "[" +  newItem.quantity  + "]" + " Category = " + "[" +  newItem.category + "]");
 
-          setItemCreated(true);
-
-          alert("Name = " . name + "Quantity = " . quantity + "Category = " . category)
+      
           
-          
-          const handleNameChange = (event) => {
-            setName(event.target.value);  
-          };
-
-          const handleQuantityChange = (event) => {
-            setQuantity(event.target.value);
-          };
-
-          const handleCategoryChange = (event) => {
-            setCategory(event.target.value);
-          };
     }
 
 
@@ -68,7 +70,7 @@ export default function NewItem() {
               <span className="text-gray-800">Quantity:</span>
               <input
                 required
-                onChange={handleDateChange}
+                onChange={handleQuantityChange}
                 value={quantity}
                 className="mt-1 p-1 block w-full rounded-md text-black bg-gray-100 focus:bg-white"
               />
@@ -78,7 +80,7 @@ export default function NewItem() {
               <span className="text-gray-800">Category:</span>
               <input
                 required
-                onChange={handleLocationChange}
+                onChange={handleCategoryChange}
                 value={category}
                 className="mt-1 p-1 block w-full rounded-md text-black bg-gray-100 focus:bg-white"
               />
@@ -92,5 +94,4 @@ export default function NewItem() {
       </div>
     </main>
     )
-
 }
