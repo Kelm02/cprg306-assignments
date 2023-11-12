@@ -1,16 +1,10 @@
 "use client";
 
-import { useUserAuth } from "./_utils/auth-context";
- 
+//credit for this page goes to Savanna. I got stuck and refered to her code. (Her code was used for part 5. And I am yet to figure out part 6)
 
- 
-await gitHubSignIn();
- 
-await firebaseSignOut();
- 
-<p>
-  Welcome, {user.displayName} ({user.email})
-</p>;
+
+import { useUserAuth } from "./_utils/auth-context";
+
 
 export default function Page() {
     
@@ -24,7 +18,7 @@ export default function Page() {
         }
     }
 
-    async function hadleSignOut() {
+    async function handleSignOut() {
         try{
             await firebaseSignOut();
         } catch(error) {
